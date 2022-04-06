@@ -1,3 +1,10 @@
+<!--
+ * @Author: sunyangbo
+ * @Date: 2022-04-06 20:49:32
+ * @LastEditors: sunyangbo
+ * @LastEditTime: 2022-04-07 02:33:09
+ * @Description: file content
+-->
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
@@ -35,12 +42,13 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+   inject: ['deviceStr'],
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
 }
@@ -51,6 +59,9 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
+  a {
+    color: red;
+  }
 }
 a {
   color: #42b983;

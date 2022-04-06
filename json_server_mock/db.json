@@ -1,0 +1,22 @@
+{
+    "posts": [
+      { "id": 1, "title": "json-server", "author": "typicode" }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" },
+    "getCharacterList":[{
+        "id": 1,
+        "time":"123123123",
+        "list":[{
+            "name":"111",
+            "id":"1",
+            "url":"https://www.img.com/aaa.png"
+        },{
+            "name":"222",
+            "id":"2",
+            "url":"https://www.img.com/aa2.png"
+        }]
+    }]
+  }
