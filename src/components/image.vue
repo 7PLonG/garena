@@ -2,16 +2,16 @@
  * @Author: sunyangbo
  * @Date: 2022-04-06 22:31:49
  * @LastEditors: sunyangbo
- * @LastEditTime: 2022-04-07 01:34:08
+ * @LastEditTime: 2022-04-07 16:29:49
  * @Description: 图片可选择是否开启占位图，
 -->
 <template>
-    <img :src="iDefaultUrl?iDefaultUrl:`https://dedautl.jpg`" :alt="`unready`" v-show="!isReady">
-    <img :src="iUrl" :alt="iAlt" v-show="isReady">
+    <img :src="iDefaultUrl?iDefaultUrl:require('../assets/img-1.jpg')" :alt="iAlt?iAlt:''" v-if="!isReady">
+    <img :src="iUrl" :alt="iAlt" v-if="isReady">
 </template>
 <script>
 export default {
-    name: 'image',
+    name: 'ImageComponent',
     data(){
         return {
             isReady:false
@@ -26,14 +26,22 @@ export default {
 
     },
     watch:{
-        iUrl(val,oval){
+        iUrl(val){
             //如果图片统一，可以将预加载图片提升到顶层
             const img = new img(val)
-            img.addEventlinster('onload',()=>{
+            img.addEventlinster('load',()=>{
                 this.isReady = true
+            })
+            img.addEventlinster('error',()=>{
+                console.log('111')
+                this.isReady = false
             })
         }
     }
        
-}      
+}     
+ 
 </script>
+<style>
+    img {width: 100%;}
+</style>

@@ -1,22 +1,46 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" },
-    "getCharacterList":[{
-        "id": 1,
-        "time":"123123123",
-        "list":[{
-            "name":"111",
-            "id":"1",
-            "url":"https://www.img.com/aaa.png"
-        },{
-            "name":"222",
-            "id":"2",
-            "url":"https://www.img.com/aa2.png"
-        }]
-    }]
-  }
+  "posts": [{
+    "id": 1,
+    "title": "json-server",
+    "author": "typicode"
+  }],
+  "comments": [{
+    "id": 1,
+    "body": "some comment",
+    "postId": 1
+  }],
+  "profile": {
+    "name": "typicode"
+  },
+  "getCharacterList": [{
+    "id": 1,
+    "time": "123123123",
+    "list": [{
+        "name": "111",
+        "id": "1",
+        "url": "https://www.img.com/aaa.png"
+      }, {
+        "name": "222",
+        "id": "2",
+        "url": "https://www.img.com/aa2.png"
+      },
+      [{
+        "name": "3-1",
+        "id": "3-1",
+        "url": "https://www.img.com/aaa.png"
+      }, {
+        "name": "3-2",
+        "id": "3-2",
+        "url": "https://www.img.com/aa2.png"
+      }, {
+        "name": "3-3",
+        "id": "3-3",
+        "url": "https://www.img.com/aaa.png"
+      }, {
+        "name": "3-4",
+        "id": "3-4",
+        "url": "https://www.img.com/aa2.png"
+      }]
+    ]
+  }]
+}

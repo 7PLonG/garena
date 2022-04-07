@@ -2,35 +2,38 @@
  * @Author: sunyangbo
  * @Date: 2022-04-06 20:49:32
  * @LastEditors: sunyangbo
- * @LastEditTime: 2022-04-07 14:56:07
+ * @LastEditTime: 2022-04-07 16:30:39
  * @Description: file content
 -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <MaskComponent :child="`scape`" v-if="`portrait`=== orientation"></MaskComponent>
+  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
+  <GirlComponent :list="list" />
+  <MaskComponent :child="`scape`" v-if="`portrait` === orientation"></MaskComponent>
 </template>
 
 <script>
 import { computed } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import GirlComponent from './components/gird'
 import MaskComponent from './components/mask'
 // import ScapeComponent from './components/scape'
 import { Ajax } from './utils/Ajax'
-import {throttle} from './utils/throttle'
-import {checkDevice} from './utils/checkDevice'
-import {checkOrientation} from './utils/checkOrientation'
+import { throttle } from './utils/throttle'
+import { checkDevice } from './utils/checkDevice'
+import { checkOrientation } from './utils/checkOrientation'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     MaskComponent,
+
+    GirlComponent
     // ScapeComponent
   },
-  data(){
+  data() {
     return {
-      orientation:'',
-      device:""
+      orientation: '',
+      device: "",
+      list: []
     }
   },
   provide() {
@@ -39,28 +42,39 @@ export default {
       orientationStr: computed(() => this.orientation)
     }
   },
-  beforeCreate(){
+  beforeCreate() {
     //判断设备，判断横纵屏幕
     // 因为需求是无刷新响应，所以设备值 和横竖屏也保存在相应数值上
-    
+
 
     window.addEventListener('resize',
-      throttle(()=>{
-            this.device = checkDevice()
-            console.log(this)
+      throttle(() => {
+        this.device = checkDevice()
+        console.log(this)
       })
     )
-    window.addEventListener("orientationchange" ,()=>{this.orientation=checkOrientation()})
+    window.addEventListener("orientationchange", () => { this.orientation = checkOrientation() })
   },
-  created(){
+  created() {
     this.device = checkDevice();
     this.orientation = checkOrientation();
-    Ajax({url:'http://localhost:3000/getCharacterList/1'}).then((d)=>{console.log(d)})
+    Ajax({ url: 'http://localhost:3000/getCharacterList/1' }).then((d) => { this.list = d.list })
   },
 }
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  display: inline-block;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
