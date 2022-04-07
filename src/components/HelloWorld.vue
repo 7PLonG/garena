@@ -2,12 +2,15 @@
  * @Author: sunyangbo
  * @Date: 2022-04-06 20:49:32
  * @LastEditors: sunyangbo
- * @LastEditTime: 2022-04-07 02:33:09
+ * @LastEditTime: 2022-04-07 14:06:32
  * @Description: file content
 -->
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h2>{{deviceStr.value}}</h2>
+    <h2>{{orientationStr.value}}</h2>
+    
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -43,7 +46,7 @@ export default {
   props: {
     msg: String
   },
-   inject: ['deviceStr'],
+   inject: ['deviceStr','orientationStr'],
 }
 </script>
 
