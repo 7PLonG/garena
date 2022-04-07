@@ -1,0 +1,29 @@
+<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="favicon.ico"><title>孙杨博 面试</title><script>function loadJs(script_file_url, script_id) {
+      var head = document.head || document.getElementByTagName("head")[0] || document.documentElement;
+      var script = document.createElement("script");
+      script.setAttribute("type", "text/javascript");
+      script.setAttribute("src", script_file_url);
+      script.setAttribute("id", script_id);
+      script.setAttribute("charset", "utf-8");
+
+      var scriptId = document.getElementById(script_id);
+      // 如果已经添加了，删除掉。
+      if (scriptId) {
+        head.removeChild(scriptId);
+      }
+      head.appendChild(script);
+
+      if (window.all) {
+        script.onreadystatechange = function () {
+          if (script.readyStatus === "loaded" || script.readyState === "complete") {
+            // 执行后续事件
+          }
+        }
+      } else {
+        script.onload = function () {
+          // 执行后续操作。
+        }
+      }
+      if(!window.fetch){
+        loadJs('https://cdn.bootcdn.net/ajax/libs/core-js/3.21.1/minified.js','corejs')
+      }</script><script defer="defer" src="js/chunk-vendors.15a4f7fb.js"></script><script defer="defer" src="js/app.b8836b8d.js"></script><link href="css/app.d394a166.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but 孙杨博 面试 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
