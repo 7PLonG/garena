@@ -2,7 +2,7 @@
  * @Author: sunyangbo
  * @Date: 2022-04-06 20:49:32
  * @LastEditors: sunyangbo
- * @LastEditTime: 2022-04-07 16:30:39
+ * @LastEditTime: 2022-04-07 16:52:01
  * @Description: file content
 -->
 <template>
@@ -58,7 +58,35 @@ export default {
   created() {
     this.device = checkDevice();
     this.orientation = checkOrientation();
-    Ajax({ url: 'http://localhost:3000/getCharacterList/1' }).then((d) => { this.list = d.list })
+    Ajax({ url: 'http://localhost:3000/getCharacterList/1' })
+      .then((d) => { this.list = d.list })
+      .catch(() => { this.list = [{
+        "name": "111",
+        "id": "1",
+        "url": "https://www.img.com/aaa.png"
+      }, {
+        "name": "222",
+        "id": "2",
+        "url": "https://www.img.com/aa2.png"
+      },
+      [{
+        "name": "3-1",
+        "id": "3-1",
+        "url": "https://www.img.com/aaa.png"
+      }, {
+        "name": "3-2",
+        "id": "3-2",
+        "url": "https://www.img.com/aa2.png"
+      }, {
+        "name": "3-3",
+        "id": "3-3",
+        "url": "https://www.img.com/aaa.png"
+      }, {
+        "name": "3-4",
+        "id": "3-4",
+        "url": "https://www.img.com/aa2.png"
+      }]
+    ] })
   },
 }
 </script>
